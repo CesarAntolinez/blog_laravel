@@ -40,6 +40,8 @@ class UsersController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
+        flash('Se ha registrado el ' . $user->name . ' de manera exitosa!');
+        return redirect()->route('admin.users.index');
     }
 
     /**

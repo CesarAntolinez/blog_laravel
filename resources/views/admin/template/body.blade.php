@@ -29,6 +29,7 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    @include('flash::message')
                     Start creating your amazing application!
                 </div>
                 <div class="card-footer">

@@ -29,6 +29,7 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    @include('flash::message')
                     {!! Form::open(['route' => 'admin.users.store', 'method' => 'POST', 'files' => false]); !!}
                     <div class="form-group">
                         {!! Form::label('name', 'Nombre') !!}

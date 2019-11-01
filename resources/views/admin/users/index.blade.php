@@ -28,6 +28,7 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    @include('flash::message')
                     <table class="table table-bordered">
                         <thead>
                         <tr>

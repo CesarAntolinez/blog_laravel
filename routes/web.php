@@ -47,6 +47,9 @@ Route::group([ 'prefix' => 'articles'], function (){
         'uses' => 'TestController@view'
     ]);
 });*/
+Route::get('/', function () {
+    return view('admin.template.body');
+});
 // Rutas de administracion
 Route::group([ 'as'=>'admin.', 'prefix' => 'admin'], function (){
     Route::resource('users', 'UsersController');
