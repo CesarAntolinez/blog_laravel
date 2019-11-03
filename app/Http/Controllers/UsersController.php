@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\userRequest;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -31,10 +32,10 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param userRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(userRequest $request)
     {
         $user = new User($request->all());
         $user->password = bcrypt($request->password);
@@ -52,7 +53,8 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        return view('admin.users.edit', ['user' => $user]);
     }
 
     /**
@@ -63,7 +65,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('admin.users.edit', ['user' => $user]);
     }
 
     /**
@@ -73,9 +76,16 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(userRequest $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->type = $request->type;
+        $user->save();
+
+        flash('El usuario ' . $user->name . ' se ha actualizado.')->success();
+        return redirect()->route('admin.users.index');
     }
 
     /**

@@ -1,6 +1,6 @@
 @extends('admin.template.main')
 
-@section('title', 'Crear Usuario')
+@section('title', 'Editar Usuario')
 
 @section('content')
     <div class="content-wrapper">
@@ -13,7 +13,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item">Usuarios</li>
-                            <li class="breadcrumb-item active">Crear usuarios</li>
+                            <li class="breadcrumb-item active">Editar usuario</li>
                         </ol>
                     </div>
                 </div>
@@ -23,43 +23,28 @@
         <section class="content">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Crear usuarios</h3>
+                    <h3 class="card-title">Editar usuario</h3>
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fas fa-minus"></i></button>
                     </div>
                 </div>
                 <div class="card-body">
-                    @if($errors->any())
-                        <div class="alert alert-danger alert-dismissible">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                            <h5><i class="icon fas fa-ban"></i> Alerta</h5>
-                            <ul>
-                            @foreach($errors->all() as $item)
-                                <li>{{ $item }}</li>
-                            @endforeach
-                            </ul>
-                        </div>
-                    @endif
                     @include('flash::message')
-                    {!! Form::open(['route' => 'admin.users.store', 'method' => 'POST', 'files' => false]); !!}
+                    {!! Form::open(['route' => array('admin.users.update', 'user' => $user->id), 'method' => 'PUT', 'files' => false]); !!}
                     <div class="form-group">
                         {!! Form::label('name', 'Nombre') !!}
-                        {!! Form::text('name', null, ['class' => 'form-control', 'require', 'placeholder' => 'Nombre completo']) !!}
+                        {!! Form::text('name', $user->name, ['class' => 'form-control', 'require', 'placeholder' => 'Nombre completo']) !!}
                     </div>
                     <div class="form-group">
                         {!! Form::label('email', 'Correo Electronico') !!}
-                        {!! Form::email('email', null, ['class' => 'form-control', 'require', 'placeholder' => 'example@explamplecom']) !!}
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label('password', 'Contraseña') !!}
-                        {!! Form::password('password', ['class' => 'form-control', 'require', 'placeholder' => '******************']) !!}
+                        {!! Form::email('email', $user->email, ['class' => 'form-control', 'require', 'placeholder' => 'example@explamplecom']) !!}
                     </div>
                     <div class="form-group">
                         {!! Form::label('type', 'Tipo de usuario') !!}
-                        {!! Form::select('type', [ 'memberr' => 'Miembro', 'admin' => 'Administrador'], null, ['class' => 'form-control', 'require']) !!}
+                        {!! Form::select('type', [ 'member' => 'Mienbro', 'admin' => 'Administrador'], $user->type, ['class' => 'form-control', 'require']) !!}
                     </div>
                     <div class="form-group">
-                        {!! Form::submit( 'Registrar', ['class' => 'btn btn-success ']) !!}
+                        {!! Form::submit( 'Guardar', ['class' => 'btn btn-success ']) !!}
                     </div>
                     {!! Form::close(); !!}
                 </div>
