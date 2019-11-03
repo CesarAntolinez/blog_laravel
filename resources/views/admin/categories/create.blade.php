@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    @include('admin.template.partials.errors')
+                    @include('admin.template.message')
                     {!! Form::open(['route' => 'admin.categories.store', 'method' => 'POST', 'files' => false]); !!}
                     <div class="form-group">
                         {!! Form::label('name', 'Nombre') !!}
