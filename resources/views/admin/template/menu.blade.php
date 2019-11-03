@@ -127,6 +127,7 @@
                     </ul>
                 </li>
                 <li class="nav-item"><a href="{{ route('admin.users.index') }}" class="nav-link"><i class="far fa-user nav-icon"></i><p>Usuarios</p></a></li>
+                <li class="nav-item"><a href="{{ route('admin.categories.index') }}" class="nav-link"><i class="fa fa-sitemap nav-icon"></i><p>Categorías</p></a></li>
             </ul>
         </nav>
     </div>

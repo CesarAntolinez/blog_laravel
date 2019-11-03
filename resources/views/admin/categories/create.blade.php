@@ -1,6 +1,6 @@
 @extends('admin.template.main')
 
-@section('title', 'Editar Usuario')
+@section('title', 'Crear Categoria')
 
 @section('content')
     <div class="content-wrapper">
@@ -8,12 +8,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Usuarios</h1>
+                        <h1>Categorías</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item">Usuarios</li>
-                            <li class="breadcrumb-item active">Editar usuario</li>
+                            <li class="breadcrumb-item">Categorías</li>
+                            <li class="breadcrumb-item active">Crear Categoría</li>
                         </ol>
                     </div>
                 </div>
@@ -23,28 +23,20 @@
         <section class="content">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Editar usuario</h3>
+                    <h3 class="card-title">Crear Categoría</h3>
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fas fa-minus"></i></button>
                     </div>
                 </div>
                 <div class="card-body">
                     @include('admin.template.partials.errors')
-                    {!! Form::open(['route' => array('admin.users.update', 'user' => $user->id), 'method' => 'PUT', 'files' => false]); !!}
+                    {!! Form::open(['route' => 'admin.categories.store', 'method' => 'POST', 'files' => false]); !!}
                     <div class="form-group">
                         {!! Form::label('name', 'Nombre') !!}
-                        {!! Form::text('name', $user->name, ['class' => 'form-control', 'require', 'placeholder' => 'Nombre completo']) !!}
+                        {!! Form::text('name', null, ['class' => 'form-control', 'require', 'placeholder' => 'Nombre completo']) !!}
                     </div>
                     <div class="form-group">
-                        {!! Form::label('email', 'Correo Electronico') !!}
-                        {!! Form::email('email', $user->email, ['class' => 'form-control', 'require', 'placeholder' => 'example@explamplecom']) !!}
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label('type', 'Tipo de usuario') !!}
-                        {!! Form::select('type', [ 'member' => 'Mienbro', 'admin' => 'Administrador'], $user->type, ['class' => 'form-control', 'require']) !!}
-                    </div>
-                    <div class="form-group">
-                        {!! Form::submit( 'Guardar', ['class' => 'btn btn-success ']) !!}
+                        {!! Form::submit( 'Registrar', ['class' => 'btn btn-success ']) !!}
                     </div>
                     {!! Form::close(); !!}
                 </div>
