@@ -48,6 +48,7 @@
                                 <td>{{ $user->email }}</td>
                                 <td>
                                     <a href="{{ route('admin.users.show', ['user' => $user->id]) }}" class="btn btn-warning"><i class="fa fa-edit"></i> Editar</a>
+                                    <a href="{{ route('admin.users.destroy', ['user' => $user->id]) }}" class="btn btn-danger" onclick="return confirm('¿Seguro que desea eliminarlo?')"><i class="fa fa-trash"></i> Eliminar</a>
                                 </td>
                             </tr>
                         @endforeach

@@ -53,4 +53,8 @@ Route::get('/', function () {
 // Rutas de administracion
 Route::group([ 'as'=>'admin.', 'prefix' => 'admin'], function (){
     Route::resource('users', 'UsersController');
+    Route::get('user/{user}/destroy', [
+        'uses'  => 'UsersController@destroy',
+        'as'    => 'users.destroy'
+    ]);
 });

@@ -86,6 +86,10 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+
+        flash('El usuario ha sido borrado de forma exitosa')->error();
+        return redirect()->route('admin.users.index');
     }
 }
