@@ -72,16 +72,17 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param userRequest $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(userRequest $request, $id)
     {
         $user = User::find($id);
-        $user->name = $request->name;
+        /*$user->name = $request->name;
         $user->email = $request->email;
-        $user->type = $request->type;
+        $user->type = $request->type;*/
+        $user->fill($request->all());
         $user->save();
 
         flash('El usuario ' . $user->name . ' se ha actualizado.')->success();
