@@ -85,6 +85,10 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+
+        flash('La categoría ha sido borrado de forma exitosa')->error();
+        return redirect()->route('admin.categories.index');
     }
 }
