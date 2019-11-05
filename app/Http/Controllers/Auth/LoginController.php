@@ -40,4 +40,9 @@ class LoginController extends Controller
     public function username() {
         return 'email';
     }
+
+    protected function guard()
+    {
+        return Auth::guard('guard-name');
+    }
 }
