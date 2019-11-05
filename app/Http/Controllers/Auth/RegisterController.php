@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/admin/home';
 
     /**
      * Create a new controller instance.
@@ -70,8 +70,8 @@ class RegisterController extends Controller
         ]);
     }
 
-    protected function guard()
+    /*protected function guard()
     {
         return Auth::guard('guard-name');
-    }
+    }*/
 }

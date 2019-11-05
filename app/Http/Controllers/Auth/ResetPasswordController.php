@@ -25,10 +25,10 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/admin/home';
 
-    protected function guard()
+    /*rotected function guard()
     {
         return Auth::guard('guard-name');
-    }
+    }*/
 }
