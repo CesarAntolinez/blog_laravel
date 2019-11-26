@@ -106,7 +106,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-                <li class="nav-item has-treeview">
+                <!--<li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>Dashboard<i class="right fas fa-angle-left"></i></p>
@@ -116,16 +116,7 @@
                         <li class="nav-item"><a href="index2.html" class="nav-link"><i class="far fa-circle nav-icon"></i><p> Dashboard v2</p></a></li>
                         <li class="nav-item"><a href="index3.html" class="nav-link"><i class="far fa-circle nav-icon"></i> Dashboard v3</a></li>
                     </ul>
-                </li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link"><i class="nav-icon fas fa-copy"></i><p> Layout Options<i class="fas fa-angle-left right"></i><span class="badge badge-info right">6</span></p></a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item"><a href="../layout/top-nav.html" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Top Navigation</p></a></li>
-                        <li class="nav-item"><a href="../layout/boxed.html" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Boxed</p></a></li>
-                        <li class="nav-item"><a href="../layout/fixed-sidebar.html" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Fixed Sidebar</p></a></li>
-                        <li class="nav-item"><a href="../layout/fixed-topnav.html" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Fixed Navbar</p></a></li>
-                    </ul>
-                </li>
+                </li>-->
                 <li class="nav-item"><a href="{{ route('admin.users.index') }}" class="nav-link"><i class="far fa-user nav-icon"></i><p>Usuarios</p></a></li>
                 <li class="nav-item"><a href="{{ route('admin.categories.index') }}" class="nav-link"><i class="fa fa-sitemap nav-icon"></i><p>Categorías</p></a></li>
             </ul>
