@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('admin.template.body');
 });
 // Rutas de administracion
-Route::group([ 'as'=>'admin.', 'prefix' => 'admin'], function (){
+Route::group([ 'as'=>'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], function (){
     //Users
     Route::resource('users', 'UsersController');
     Route::get('user/{user}/destroy', [
