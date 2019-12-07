@@ -29,6 +29,12 @@ Route::group([ 'as'=>'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], fun
         'uses'  => 'CategoriesController@destroy',
         'as'    => 'categories.destroy'
     ]);
+    //Tags
+    Route::resource('tags', 'TagController');
+    Route::get('tags/{tag}/destroy', [
+        'uses'  => 'TagController@destroy',
+        'as'    => 'tags.destroy'
+    ]);
 
     Route::get('/home', 'HomeController@index')->name('home');
 });
