@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | Log in</title>
+    <title>Login</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -52,14 +52,6 @@
                     @enderror
                 </div>
                 <div class="row">
-                    <div class="col-8">
-                        <div class="icheck-primary">
-                            <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                            <label for="remember">
-                                {{ __('Remember Me') }}
-                            </label>
-                        </div>
-                    </div>
                     <div class="col-4">
                         <button type="submit" class="btn btn-primary btn-block btn-flat">{{ __('Login') }}</button>
                     </div>
