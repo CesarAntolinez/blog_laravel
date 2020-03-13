@@ -29,26 +29,40 @@
                 </div>
                 <div class="card-body">
                     @include('admin.template.message')
-                    <table class="table table-bordered">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($tags as $tag)
+                    <div class="row justify-content-end">
+                        <div class="col-auto">
+                            {!! Form::open(['route' => 'admin.tags.index', 'method' => 'get', 'class' => '']) !!}
+                            <div class="input-group input-group" style="width: 200px;">
+                                {!! Form::text('name', null, ['class' => 'form-control float-right', 'placeholder' => 'Buscar']) !!}
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                            {!! Form::close() !!}
+                        </div>
+                    </div>
+                    <div class="col-12 my-2">
+                        <table class="table table-bordered">
+                            <thead>
                             <tr>
-                                <td>{{ $tag->id }}</td>
-                                <td>{{ $tag->name }}</td>
-                                <td>
-                                    <a href="{{ route('admin.tags.edit', ['tag' => $tag->id]) }}" class="btn btn-warning"><i class="fa fa-edit"></i> Editar</a>
-                                    <a href="{{ route('admin.tags.destroy', ['tag' => $tag->id]) }}" class="btn btn-danger" onclick="return confirm('¿Seguro que desea eliminarlo?')"><i class="fa fa-trash"></i> Eliminar</a>
-                                </td>
+                                <th>ID</th>
+                                <th>Nombre</th>
                             </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            @foreach($tags as $tag)
+                                <tr>
+                                    <td>{{ $tag->id }}</td>
+                                    <td>{{ $tag->name }}</td>
+                                    <td>
+                                        <a href="{{ route('admin.tags.edit', ['tag' => $tag->id]) }}" class="btn btn-warning"><i class="fa fa-edit"></i> Editar</a>
+                                        <a href="{{ route('admin.tags.destroy', ['tag' => $tag->id]) }}" class="btn btn-danger" onclick="return confirm('¿Seguro que desea eliminarlo?')"><i class="fa fa-trash"></i> Eliminar</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                     <div class="row justify-content-center my-1">
                         {!! $tags->render() !!}
                     </div>

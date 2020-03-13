@@ -31,4 +31,10 @@ class Tag extends Model
     {
         return $this->belongsToMany('App\Articles')->withTimestamps();
     }
+
+    public function scopeSearch($query, $name)
+    {
+        if ($name != '') return $query->where('name', 'like', "%$name%");
+        return $query;
+    }
 }
