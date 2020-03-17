@@ -45,7 +45,7 @@
                     </div>
                     <div class="form-group">
                         {!! Form::label('type', 'Tipo de usuario') !!}
-                        {!! Form::select('type', [ 'memberr' => 'Miembro', 'admin' => 'Administrador'], null, ['class' => 'form-control', 'require']) !!}
+                        {!! Form::select('type', [ 'member' => 'Miembro', 'admin' => 'Administrador'], null, ['class' => 'form-control', 'require']) !!}
                     </div>
                     <div class="form-group">
                         {!! Form::submit( 'Registrar', ['class' => 'btn btn-success ']) !!}

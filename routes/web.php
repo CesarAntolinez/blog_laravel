@@ -35,6 +35,12 @@ Route::group([ 'as'=>'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], fun
         'uses'  => 'TagController@destroy',
         'as'    => 'tags.destroy'
     ]);
+    //Articles
+    Route::resource('articles', 'ArticlesController');
+    Route::get('articles/{article}/destroy', [
+        'uses'  => 'ArticlesController@destroy',
+        'as'    => 'articles.destroy'
+    ]);
 
     Route::get('/home', 'HomeController@index')->name('home');
 });

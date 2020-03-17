@@ -52,7 +52,7 @@
                     {!! $categories->render() !!}
                 </div>
                 <div class="card-footer">
-                    <a href="{{ route('admin.users.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Registrar usuario</a>
+                    <a href="{{ route('admin.categories.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Registrar categoría</a>
                 </div>
             </div>
         </section>

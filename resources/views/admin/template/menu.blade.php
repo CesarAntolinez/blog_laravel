@@ -30,9 +30,10 @@
 
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <li class="nav-item"><a href="{{ route('admin.users.index') }}" class="nav-link"><i class="far fa-user nav-icon"></i><p>Usuarios</p></a></li>
-                <li class="nav-item"><a href="{{ route('admin.categories.index') }}" class="nav-link"><i class="fa fa-sitemap nav-icon"></i><p>Categorías</p></a></li>
-                <li class="nav-item"><a href="{{ route('admin.tags.index') }}" class="nav-link"><i class="fa fa-tags nav-icon"></i><p>Tags</p></a></li>
+                <li class="nav-item"><a href="{{ route('admin.users.index') }}" class="nav-link"><i class="far fa-user nav-icon"></i> <p>Usuarios</p></a></li>
+                <li class="nav-item"><a href="{{ route('admin.categories.index') }}" class="nav-link"><i class="fa fa-sitemap nav-icon"></i> <p>Categorías</p></a></li>
+                <li class="nav-item"><a href="{{ route('admin.tags.index') }}" class="nav-link"><i class="fa fa-tags nav-icon"></i> <p>Tags</p></a></li>
+                <li class="nav-item"><a href="{{ route('admin.articles.index') }}" class="nav-link"><i class="fas fa-newspaper"></i> <p>Articulos</p></a></li>
             </ul>
         </nav>
     </div>
