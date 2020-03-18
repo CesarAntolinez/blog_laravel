@@ -4,6 +4,7 @@
 
 @section('style')
     <link href="{{ asset('plugins\select2\css\select2.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('plugins\Trumbowyg\ui\trumbowyg.min.css') }}" rel="stylesheet"/>
 @endsection
 @section('content')
     <div class="content-wrapper">
@@ -67,6 +68,10 @@
 @section('script')
     <script src="{{ asset('plugins/select2/js/select2.min.js') }}"></script>
     <script src="{{ asset('plugins/select2/js/i18n/es.js') }}"></script>
+
+    <!-- Trumbowyg -->
+    <script src="{{ asset('plugins/Trumbowyg/trumbowyg.min.js') }}"></script>
+    <script src="{{ asset('plugins/Trumbowyg/langs/es.min.js') }}"></script>
     <script>
         $(document).ready(function() {
             $('.tags').select2({
@@ -77,6 +82,10 @@
             $('.article').select2({
                 placeholder: "Seleccione un Articulo",
                 language: 'es'
+            });
+
+            $('#content').trumbowyg({
+                lang: 'es'
             });
 
         });

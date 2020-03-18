@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Category;
+use App\Http\Requests\ArticleRequest;
 use App\Image;
 use App\Tag;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,10 +39,10 @@ class ArticlesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param ArticleRequest $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(ArticleRequest $request)
     {
         if ($request->file('image')) {
             $file = $request->file('image');
@@ -97,7 +99,7 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ArticleRequest $request, $id)
     {
         //
     }
