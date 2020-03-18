@@ -2,6 +2,9 @@
 
 @section('title', 'Crear Articulos')
 
+@section('style')
+    <link href="{{ asset('plugins\select2\css\select2.min.css') }}" rel="stylesheet"/>
+@endsection
 @section('content')
     <div class="content-wrapper">
         <section class="content-header">
@@ -37,7 +40,7 @@
                     </div>
                     <div class="form-group">
                         {!! Form::label('category_id', 'Categoría') !!}
-                        {!! Form::select('category_id', $categories, null, ['class' => 'form-control', 'require']) !!}
+                        {!! Form::select('category_id', $categories, null, ['class' => 'form-control article', 'require']) !!}
                     </div>
                     <div class="form-group">
                         {!! Form::label('content', 'Contenido') !!}
@@ -45,7 +48,7 @@
                     </div>
                     <div class="form-group">
                         {!! Form::label('tags', 'Tags') !!}
-                        {!! Form::select('tags[]', $tags, null, ['class' => 'form-control', 'require', 'multiple']) !!}
+                        {!! Form::select('tags[]', $tags, null, ['class' => 'form-control tags', 'require', 'multiple']) !!}
                     </div>
                     <div class="form-group">
                         {!! Form::label('image', 'Imagen') !!}
@@ -59,4 +62,23 @@
             </div>
         </section>
     </div>
+@endsection
+
+@section('script')
+    <script src="{{ asset('plugins/select2/js/select2.min.js') }}"></script>
+    <script src="{{ asset('plugins/select2/js/i18n/es.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.tags').select2({
+                placeholder: "Seleccione maximo 3 tags",
+                language: 'es',
+                maximumSelectionLength: 3
+            });
+            $('.article').select2({
+                placeholder: "Seleccione un Articulo",
+                language: 'es'
+            });
+
+        });
+    </script>
 @endsection
