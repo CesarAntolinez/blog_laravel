@@ -46,22 +46,25 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Nombre</th>
+                                <th>Titulo</th>
+                                <th>Categoria</th>
+                                <th>Usuario</th>
+                                <th>Acciones</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @if(isset($tags))
-                                @foreach($tags as $tag)
+                                @foreach($articles as $article)
                                     <tr>
-                                        <td>{{ $tag->id }}</td>
-                                        <td>{{ $tag->name }}</td>
+                                        <td>{{ $article->id }}</td>
+                                        <td>{{ $article->title }}</td>
+                                        <td>{{ $article->category->name }}</td>
+                                        <td>{{ $article->user->name }}</td>
                                         <td>
-                                            <a href="{{ route('admin.tags.edit', ['tag' => $tag->id]) }}" class="btn btn-warning"><i class="fa fa-edit"></i> Editar</a>
-                                            <a href="{{ route('admin.tags.destroy', ['tag' => $tag->id]) }}" class="btn btn-danger" onclick="return confirm('¿Seguro que desea eliminarlo?')"><i class="fa fa-trash"></i> Eliminar</a>
+                                            <a href="{{ route('admin.articles.edit', ['article' => $article->id]) }}" class="btn btn-warning"><i class="fa fa-edit"></i> Editar</a>
+                                            <a href="{{ route('admin.articles.destroy', ['article' => $article->id]) }}" class="btn btn-danger" onclick="return confirm('¿Seguro que desea eliminarlo?')"><i class="fa fa-trash"></i> Eliminar</a>
                                         </td>
                                     </tr>
                                 @endforeach
-                            @endif
                             </tbody>
                         </table>
                     </div>

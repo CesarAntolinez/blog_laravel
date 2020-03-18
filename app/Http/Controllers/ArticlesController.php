@@ -20,7 +20,13 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        return view('admin.articles.index', ['articles' => Article::all()]);
+        $articles = Article::orderBy('id', 'DESC')->paginate(5);
+        /*$articles->earch(function ($article){
+            $article->category;
+            $article->user;
+        });
+        dd($articles);*/
+        return view('admin.articles.index', ['articles' => $articles]);
     }
 
     /**
