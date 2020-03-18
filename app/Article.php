@@ -79,4 +79,10 @@ class Article extends Model
             ]
         ];
     }
+
+    public function scopeSearch($query, $search)
+    {
+        if ($search != '') return $query->where('title', 'like', "%$search%")->orWhere('content', 'like', "%$search%");
+        return $query;
+    }
 }

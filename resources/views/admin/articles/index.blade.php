@@ -33,7 +33,7 @@
                         <div class="col-auto">
                             {!! Form::open(['route' => 'admin.articles.index', 'method' => 'get', 'class' => '']) !!}
                             <div class="input-group input-group" style="width: 200px;">
-                                {!! Form::text('name', null, ['class' => 'form-control float-right', 'placeholder' => 'Buscar']) !!}
+                                {!! Form::text('search', null, ['class' => 'form-control float-right', 'placeholder' => 'Buscar']) !!}
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
                                 </div>

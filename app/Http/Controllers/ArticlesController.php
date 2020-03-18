@@ -18,9 +18,9 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        $articles = Article::orderBy('id', 'DESC')->paginate(5);
+        $articles = Article::search($request->search)->orderBy('id', 'DESC')->paginate(5);
         /*$articles->earch(function ($article){
             $article->category;
             $article->user;
