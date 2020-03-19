@@ -80,22 +80,31 @@ class ArticlesController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|RedirectResponse
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|RedirectResponse
      */
     public function edit($id)
     {
-        //
+        $article = Article::find($id);
+        if (isset($article))
+        {
+            $categories = Category::orderBy('name', 'ASC')->pluck('name', 'id');
+            $tags = Tag::orderBy('name', 'ASC')->pluck('name', 'id');
+
+            return view('admin.articles.edit', ['categories' => $categories, 'tags' => $tags, 'article' => $article]);
+        }
+        flash('No se encontro el artículo')->warning();
+        return redirect()->route('admin.articles.index');
     }
 
     /**
@@ -103,11 +112,17 @@ class ArticlesController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
-    public function update(ArticleRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        //
+        $article = Article::find($id);
+        $article->fill($request->all());
+        $article->save();
+
+        $article->tags()->sync($request->tags);
+        flash('Se a editado el artículo ' . $article->title)->success();
+        return redirect()->route('admin.articles.index');
     }
 
     /**
