@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Image;
 use Illuminate\Http\Request;
 
 class ImagesController extends Controller
@@ -13,6 +14,6 @@ class ImagesController extends Controller
      */
     public function index()
     {
-        return view('admin.images.index');
+        return view('admin.images.index', ['images' => Image::all()]);
     }
 }

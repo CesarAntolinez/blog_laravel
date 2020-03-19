@@ -29,30 +29,18 @@
                 </div>
                 <div class="card-body">
                     @include('admin.template.message')
-                    <table class="table table-bordered">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($categories as $category)
-                            <tr>
-                                <td>{{ $category->id }}</td>
-                                <td>{{ $category->name }}</td>
-                                <td>
-                                    <a href="{{ route('admin.categories.edit', ['category' => $category->id]) }}" class="btn btn-warning"><i class="fa fa-edit"></i> Editar</a>
-                                    <a href="{{ route('admin.categories.destroy', ['category' => $category->id]) }}" class="btn btn-danger" onclick="return confirm('¿Seguro que desea eliminarlo?')"><i class="fa fa-trash"></i> Eliminar</a>
-                                </td>
-                            </tr>
+                    <div class="row justify-content-center">
+                        @foreach($images as $image)
+                            <div class="col-lg-4 col-md-3 col-sm-12">
+                                <div class="card">
+                                    <div class="card-header bg-green">
+                                        {{ $image->article->title }}
+                                    </div>
+                                    <img src="{{ asset('img/articles/' . $image->name ) }}" class="card-img-top">
+                                </div>
+                            </div>
                         @endforeach
-                        </tbody>
-                    </table>
-                    {!! $categories->render() !!}
-                </div>
-                <div class="card-footer">
-                    <a href="{{ route('admin.categories.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Registrar categoría</a>
+                    </div>
                 </div>
             </div>
         </section>
