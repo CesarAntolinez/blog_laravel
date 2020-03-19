@@ -69,7 +69,7 @@
                         </table>
                     </div>
                     <div class="row justify-content-center my-1">
-                        {!! $article->render() !!}
+                        {!! $articles->render() !!}
                     </div>
                 </div>
                 <div class="card-footer">
