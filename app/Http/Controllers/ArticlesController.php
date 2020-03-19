@@ -129,10 +129,17 @@ class ArticlesController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function destroy($id)
     {
-        //
+        $article = Article::find($id);
+        if (isset($article)) {
+            $article->delete();
+            flash('Se ha borrado el artículo ' . $article->title)->success();
+            return redirect()->route('admin.articles.index');
+        }
+        flash('No se encontro el artículo')->warning();
+        return redirect()->route('admin.articles.index');
     }
 }
