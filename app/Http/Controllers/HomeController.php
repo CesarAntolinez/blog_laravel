@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
+use App\Category;
+use App\Image;
+use App\Tag;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +28,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        return view('admin.home', [
+            'users'         => User::count(),
+            'tags'          => Tag::count(),
+            'articles'      => Article::count(),
+            'images'        => Image::count(),
+            'categories'    => Category::count(),
+        ]);
     }
 }

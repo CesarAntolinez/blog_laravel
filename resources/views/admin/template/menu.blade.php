@@ -13,7 +13,7 @@
 </nav>
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <a href="{{ url('/') }}" class="brand-link">
+    <a href="{{ url('/admin/home') }}" class="brand-link">
         <!--<img src=" {{ asset('img/admin/AdminLTELogo.png') }}"
              alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3"
@@ -33,7 +33,7 @@
                 <li class="nav-item"><a href="{{ route('admin.users.index') }}" class="nav-link"><i class="far fa-user nav-icon"></i> <p>Usuarios</p></a></li>
                 <li class="nav-item"><a href="{{ route('admin.categories.index') }}" class="nav-link"><i class="fa fa-sitemap nav-icon"></i> <p>Categorías</p></a></li>
                 <li class="nav-item"><a href="{{ route('admin.tags.index') }}" class="nav-link"><i class="fa fa-tags nav-icon"></i> <p>Tags</p></a></li>
-                <li class="nav-item"><a href="{{ route('admin.articles.index') }}" class="nav-link"><i class="fas fa-newspaper"></i> <p>Articulos</p></a></li>
+                <li class="nav-item"><a href="{{ route('admin.articles.index') }}" class="nav-link"><i class="fas fa-newspaper"></i> <p>Artículos</p></a></li>
                 <li class="nav-item"><a href="{{ route('admin.images.index') }}" class="nav-link"><i class="fas fa-images"></i> <p>Imagenes</p></a></li>
             </ul>
         </nav>
