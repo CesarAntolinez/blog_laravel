@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('admin.template.body');
+    return view('blog.home');
 });
 // Rutas de administracion
 Route::group([ 'as'=>'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], function (){
