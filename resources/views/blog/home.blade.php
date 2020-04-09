@@ -18,7 +18,7 @@
                         <a href="#" class="btn btn-primary">Read More &rarr;</a>
                     </div>
                     <div class="card-footer text-muted">
-                        Posteado el {{ $article->created_at }} por {{ $article->user->name }}
+                        Posteado {{ $article->created_at->diffForHumans() }} por {{ $article->user->name }}
                     </div>
                 </div>
             @endforeach
