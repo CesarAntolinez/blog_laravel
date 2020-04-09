@@ -10,10 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('blog.home');
+//Rutas del blog
+Route::group([ 'as'=>'blog.'], function (){
+    Route::get('/', [
+        'uses' => 'BlogController@index',
+        'as'   => 'home'
+    ]);
 });
+
 // Rutas de administracion
 Route::group([ 'as'=>'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], function (){
     //Users
