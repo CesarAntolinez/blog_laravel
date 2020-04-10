@@ -44,7 +44,56 @@
 
 <!-- Page Content -->
 <section class="container">
-    @yield('content')
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+            @yield('content')
+        </div>
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+            <!-- Search Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">Search</h5>
+                <div class="card-body">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button">Go!</button>
+              </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categories Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">Categorías</h5>
+                <div class="card-body">
+                    <div class="row">
+                        @foreach($categories as $category)
+                            <div class="col-auto">
+                                <a href="#">{{$category->name}} ({{ $category->articles->count() }})</a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tags Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">Tags</h5>
+                <div class="card-body">
+                    <div class="row">
+                        @foreach($tags as $tag)
+                            <div class="col-auto p-1">
+                                <a href="#" class="p-2 bg-primary text-white" >{{$tag->name}}</a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </section>
 <!-- /.container -->
 <!-- Footer -->

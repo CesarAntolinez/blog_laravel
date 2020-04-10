@@ -179,7 +179,7 @@ return [
         /*
          * providers personal
          */
-
+        App\Providers\ComposerServiceProvider::class,
     ],
 
     /*
