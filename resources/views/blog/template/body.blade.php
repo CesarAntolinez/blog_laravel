@@ -71,7 +71,7 @@
                     <div class="row">
                         @foreach($categories as $category)
                             <div class="col-auto">
-                                <a href="#">{{$category->name}} ({{ $category->articles->count() }})</a>
+                                <a href="{{ route('blog.search.categories', $category->name) }}">{{$category->name}} ({{ $category->articles->count() }})</a>
                             </div>
                         @endforeach
                     </div>
@@ -85,7 +85,7 @@
                     <div class="row">
                         @foreach($tags as $tag)
                             <div class="col-auto p-1">
-                                <a href="#" class="p-2 bg-primary text-white" >{{$tag->name}}</a>
+                                <a href="{{ route('blog.search.tags', $tag->name) }}" class="p-2 bg-primary text-white" >{{$tag->name}}</a>
                             </div>
                         @endforeach
                     </div>

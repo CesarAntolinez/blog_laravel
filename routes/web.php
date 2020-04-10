@@ -16,6 +16,14 @@ Route::group([ 'as'=>'blog.'], function (){
         'uses' => 'BlogController@index',
         'as'   => 'home'
     ]);
+    Route::get('categories/{name}', [
+        'uses' => 'BlogController@searchCategory',
+        'as'   => 'search.categories'
+    ]);
+    Route::get('tags/{name}', [
+        'uses' => 'BlogController@searchTags',
+        'as'   => 'search.tags'
+    ]);
 });
 
 // Rutas de administracion

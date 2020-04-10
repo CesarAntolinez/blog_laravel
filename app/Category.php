@@ -32,4 +32,16 @@ class Category extends Model
         return $this->hasMany('App\Article');
     }
 
+    /**
+     * Scope for search the category for name
+     *
+     * @param $query
+     * @param $name
+     * @return mixed
+     */
+    public function scopeSearchName($query, $name)
+    {
+        return $query->where('name', 'like', $name);
+    }
+
 }

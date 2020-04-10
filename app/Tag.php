@@ -29,11 +29,20 @@ class Tag extends Model
      */
     public function articles()
     {
-        return $this->belongsToMany('App\Articles')->withTimestamps();
+        return $this->belongsToMany('App\Article')->withTimestamps();
     }
 
-    public function scopeSearch($query, $name)
+    /**
+     * Scope for search the tag for name
+     *
+     * @param $query
+     * @param $name
+     * @param $force
+     * @return mixed
+     */
+    public function scopeSearch($query, $name, $force = false)
     {
+        if ($name != '' and $force) return $query->where('name', 'like', $name);
         if ($name != '') return $query->where('name', 'like', "%$name%");
         return $query;
     }
