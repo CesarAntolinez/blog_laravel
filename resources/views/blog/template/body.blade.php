@@ -12,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/blog/blog.css') }}" rel="stylesheet">
@@ -55,12 +56,14 @@
             <div class="card my-4">
                 <h5 class="card-header">Search</h5>
                 <div class="card-body">
+                    {!! Form::open(['route' => 'blog.home', 'method' => 'get', 'class' => '']) !!}
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
-                        <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button">Go!</button>
-              </span>
+                        {!! Form::text('search', null, ['class' => 'form-control float-right', 'placeholder' => 'Buscar']) !!}
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                        </div>
                     </div>
+                    {!! Form::close() !!}
                 </div>
             </div>
 

@@ -12,11 +12,12 @@ class BlogController extends Controller
     /**
      * View index
      *
+     * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('blog.home', ['articles' => Article::orderBy('id', 'DESC')->paginate(5)]);
+        return view('blog.home', ['articles' => Article::search($request->search)->orderBy('id', 'DESC')->paginate(5)]);
     }
 
     /**
