@@ -24,6 +24,10 @@ Route::group([ 'as'=>'blog.'], function (){
         'uses' => 'BlogController@searchTags',
         'as'   => 'search.tags'
     ]);
+    Route::get('article/{slug}', [
+        'uses' => 'BlogController@article',
+        'as'   => 'article'
+    ]);
 });
 
 // Rutas de administracion

@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Cocur\Slugify\SlugifyInterface;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
@@ -9,6 +11,8 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Article extends Model
 {
     use Sluggable;
+    use SluggableScopeHelpers;
+
     /**
      * The name table
      *

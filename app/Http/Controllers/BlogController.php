@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Category;
 use App\Tag;
+use http\Env\Response;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -42,5 +43,11 @@ class BlogController extends Controller
     {
         $tag = Tag::search($request->name, true)->first();
         return view('blog.home', ['articles' => $tag->articles()->paginate(5)]);
+    }
+
+    public function article(Request $request)
+    {
+        $article = Article::findBySlugOrFail($request->slug);
+        return view('blog.article', ['article' => $article]);
     }
 }
