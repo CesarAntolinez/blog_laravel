@@ -52,4 +52,14 @@ class User extends Authenticatable
         return $this->hasMany('App\Article');
     }
 
+    /**
+     * verifica estado de admin
+     *
+     * @return bool
+     */
+    public function admin()
+    {
+        return $this->type === 'admin';
+    }
+
 }
