@@ -33,11 +33,11 @@ Route::group([ 'as'=>'blog.'], function (){
 // Rutas de administracion
 Route::group([ 'as'=>'admin.', 'prefix' => 'admin', 'middleware' => 'auth'], function (){
     //Users
-    Route::resource('users', 'UsersController');
+    Route::resource('users', 'UsersController')->middleware('admin');;
     Route::get('user/{user}/destroy', [
         'uses'  => 'UsersController@destroy',
         'as'    => 'users.destroy'
-    ]);
+    ])->middleware('admin');;
 
     //categories
     Route::resource('categories', 'CategoriesController');

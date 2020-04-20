@@ -19,6 +19,6 @@ class Admin
         if (Auth::user() &&  Auth::user()->admin()) {
             return $next($request);
         }
-        return redirect('/home');
+        return redirect('/admin/home');
     }
 }
