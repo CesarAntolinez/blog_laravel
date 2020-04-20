@@ -30,18 +30,20 @@
                 <div class="card-body">
                     @include('admin.template.message')
                     <div class="row justify-content-center">
-                        <div class="col-md-3 col-6">
-                            <div class="small-box bg-info">
-                                <div class="inner">
-                                    <h3>{{ $users }}</h3>
-                                    <p>Usuarios</p>
+                        @if(auth()->user()->admin())
+                            <div class="col-md-3 col-6">
+                                <div class="small-box bg-info">
+                                    <div class="inner">
+                                        <h3>{{ $users }}</h3>
+                                        <p>Usuarios</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <a href="{{ route('admin.users.index') }}" class="small-box-footer">Mas información<i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
-                                <div class="icon">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <a href="{{ route('admin.users.index') }}" class="small-box-footer">Mas información<i class="fas fa-arrow-circle-right"></i></a>
                             </div>
-                        </div>
+                        @endif
                         <div class="col-md-3 col-6">
                             <div class="small-box bg-green">
                                 <div class="inner">
